@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Welcome to Crystal Candle Shop! I specialize in creating customizable candles featuring a wide variety of scents, essential oils, and crystals for everyone to enjoy. I also have pre-made candles that make excellent gifts! Thank you for visiting my webiste!">
+    <meta name="author" content="862283403">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Title of your Website -->
+    <title>Crystal Candle Shop</title>
+    <link href="product.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="site-header sticky-top py-1">
+    <!-- Top Menu Bar -->
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-1" href="https://www.target.com" target="_blank">Target</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-2" href="https://www.bathandbodyworks.com" target="_blank">Bath & Body Works</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-3" href="https://tinyrituals.co" target="_blank">Crystal Guide</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-4" href="https://www.youngliving.com" target="_blank">Essential Oil Guide</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-5" href="https://www.sephora.com" target="_blank">Sephora</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-6" href="https://www.ulta.com" target="_blank">Ulta</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-7" href="https://www.amazon.com" target="_blank">Amazon</a>
+    </div>
+</nav>
+<!-- Main Header Section h1-->
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-0 text-center bg-light">
+    <div class="col-md-8 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Sign up for a chance to make your very own candle!  </h1>
+        <p class="lead font-weight-normal">You and a friend will be able to come to my studio and learn the art of candle making!</p>
+        <a class="btn btn-outline-secondary" href="https://www.e-architect.com/articles/benefits-of-crystal-infused-candles">Coming soon</a>
+    </div>
+</div>
+<!-- Left Tile -->
+<div class="d-md-flex flex-md-equal w-100">
+    <div class="bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+            <h2 class="display-5">Sign up</h2>
+            <p class="lead">Sign up now to get instant access to our educational content</p>
+        </div>
+        <!-- Web form when submitted will send a text message -->
+        <form class="p-2" onsubmit="sendTextMessage(); return false;">
+            <!-- Full Name Form Field -->
+            <div class="form-group">
+                <label for="example-first-name">Full Name</label>
+                <input type="text" value="Full Name" class="form-control" id="example-first-name" aria-describedby="emailHelp">
+            </div>
+            <!-- Phone Number Form Field -->
+            <div class="form-group">
+                <label for="example-tel-input">Phone number</label>
+                <input type="tel" class="form-control" value="1408555555" id="example-tel-input">
+            </div>
+            <!-- JavaScript that handles onSubmit logic -->
+            <!-- Configure the XHR request below with your own credentials -->
+            <script>
+            function sendTextMessage() {
+                console.log("Hello world!");
+                var xhr = new XMLHttpRequest();
+                var accountSID = "AC0bef767c9f61ef312567670de924174a";
+                var authToken = "c4fa7cf75917ed6aca86eddd3d54c6b6";
+                var base64encoded = accountSID + ":" + authToken;
+                var params = "To=" + document.getElementById('example-tel-input').value + "&From=" + "13512137817" + "&Body=" + "Hello " + document.getElementById('example-first-name').value + " Thank you for signing up! Good Luck :)."
+                xhr.open("POST", "https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.setRequestHeader('Authorization', 'Basic ' + btoa(base64encoded));
+                xhr.send(params);
+            }
+            </script>
+            <!-- Submit button that will execute the sendTextMessage function -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <!-- Right Tile -->
+    <div class="bg-light pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Why Crystal Candles?</h2>
+            <p class="lead">Crystal Candles can help with a multitude of ailments including: stress relief, calmness, and promote spiritual healing and overall calmness</p>
+            <img class="mx-auto" src="example_image2.png" height="250px">
+        </div>
+        <div class="mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;"></div>
+    </div>
+</div>
+  </body>
+</html>
